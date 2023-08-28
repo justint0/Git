@@ -1,0 +1,77 @@
+Source: https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/
+
+What is version control?
+- Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+
+What is Git?
+- Git is a Distributed Version Control System. Git does not necessarily rely on a central server to store all the versions of a project's files. Instead, every user "clones" a copy of a repository (a collection of files) and has the full history of the project on their own hard drive. 
+
+Git Workflow
+- Repository (repo) is a collection of source code.
+
+- There are four fundamental elements in the Git workflow: working directory, staging area, local repository, and remote repository.
+
+  - If you consider a file in your working directory, it can be in three possible states.
+    - 1. It can be staged. The files with the updated changes are marked to be committed to the local repository but not yet committed.
+    - 2. It can be modified. The files with the updated changes are not yet stored in the local repository.
+    - 3. It can be committed. The changes you made to your file are safely stored in the local repository.
+    - git add is a command used to add a file that is in the working directory to the staging area.
+    - git commit is a command used to add all files that are staged to the local repository.
+    - git push is a command used to add all committed files in the local repository to the remote repository.
+    - git fetch is a command used to get files from the remote repository to the local repository but not into the working directory.
+    - git merge is a command used to get the files from the local repository into the working directory. 
+    - git pull is a command used to get files from the remote repository directly into the working directory. It is equivalent to a git fetch and a git merge. 
+
+  Initialize Git
+    - Locate to the folder you want to place under git in your terminal. 
+    - "touch README.md" to create a README file for the repository.
+    - "git init" initiates an empty git repository.
+    - Edit the README.md file.
+  
+  Ignore files
+    - Create a .gitignore file and list folders and files that we do not want to track.
+  
+  Add files to the staging area for commit
+    - "git add ." to add all the files or "git add README.md" to add a specific file
+    - "git status" lists all new or modified files to be committed
+  
+  Commit changes you made to your Git Repository
+    - `git commit -m "First commit"`
+  
+  Uncommit changes you just made to your Git Repo
+    - `git reset HEAD~1` undoes the most recent commit
+    - `git reset --hard HEAD` undoes the most recent commit and the new code
+  
+  Add a remote origin and Push
+    - `git remote add origin remote_repository_URL` sets the new remote
+    - The git remote command lets you create, view, and delete connections to other repositories.
+    - `git remote -v` lists the remote connections you have to other repositories.
+    - `git push -u origin master` pushes the changes in your local repository up to the remote repository you specified as the origin
+
+  See the changes you made to your file
+    - `git diff` to show the file changes not yet staged
+  
+  View commit history
+    - `git log`
+  
+
+
+How do I download and work on other repositories on GitHub?
+  Cloning a Git Repo
+    - Locate to the directory you want to clone the repo. Copy the link of the repository you want and entire the following: `git clone remote_repository_URL`
+  
+  Pushing changes to the Git Repo
+    - Now you can work on the files you want and commit to changes locally. If you want to push changes to that repository you either have to be added as a collaborator for the repository or you have to create a pull request.
+  
+  To make sure you're working on the latest version of the git repo each time you start working,
+    - `git pull origin master`
+    - `git fetch` followed by a `git merge` equals a `git pull`
+    - Git pull automatically merges the commits without letting you review them first. 
+    - When you git fetch, Git gathers any commits from the target branch that do not exist in your current branch and stores them in your local repository. However, it does not merge them with your current branch. This is particularly useful if you need to keep your repository up to date, but are working on something that might break if you update your files. To integrate the commits into your master branch, you use git merge.
+
+  Branches
+    - `git branch` lists all branches. * indicates the branch we are currently on.
+    - `git branch <branch-name>` creates a new branch
+    - `git checkout <branch-name>` switches to that branch
+    - `git merge <branch-name>` merges code from the specified branch into our current branch
+    - `git push -u origin <branch-name>` adds branch to remote repo
